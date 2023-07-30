@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./Sidebar.css";
 import "../"
-import { FaBeer,FaHome,FaPlusSquare,FaBook,FaUserEdit,FaUserCheck,FaBars}from "react-icons/fa";
+import { FaHome,FaPlusSquare,FaBook,FaUserEdit,FaBars}from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 // import Logo from '../img/logo.png';
 

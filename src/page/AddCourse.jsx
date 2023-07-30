@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Papa from 'papaparse'
+// import Papa from 'papaparse'
 import "./AddCourse.css";
 // import '../App.css';
 const AddCourse = () => {
