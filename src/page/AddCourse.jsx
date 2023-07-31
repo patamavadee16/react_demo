@@ -16,17 +16,30 @@ const AddCourse = () => {
     const csvFileToArray = string => {
         
       const csvHeader = string.slice(0, string.indexOf("\n")).split(",");
+      csvHeader[2]="ชื่อ";
+      csvHeader.push("นามสกุล");
+      console.log(csvHeader)
       const csvRows = string.slice(string.indexOf("\n") + 1).split("\n");
   
       const array = csvRows.map(i => {
         const values = i.split(",");
+
+        const name = values[2].split(" ");
+        name[0].startsWith("นาย")? name[1]="a":name[0].startsWith("นางสาว")?name[1]="s":name[1]="p"
+        values[2]= name[0]; //fname
+
+        values[3]= name[1];//lastname
+
         const obj = csvHeader.reduce((object, header, index) => {
           object[header] = values[index];
-          
+          // console.log(object[header]);
+          // console.log(obj);
+          // console.log(values);
           return object;
           
         }, {});
         return obj;
+        
         
       });
       
@@ -38,7 +51,9 @@ const AddCourse = () => {
     
         if (file) {
           fileReader.onload = function (event) {
+            // console.log(event.target.result);
             const text = event.target.result;
+            // console.log(text)
             csvFileToArray(text);
           };
     
