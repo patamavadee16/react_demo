@@ -70,14 +70,16 @@ main{
 }
 
 .active {
-  background: var(--activeItem);
+  /* background: var(--activeItem); */
+  background: pink;
   margin-left: 0;
 }
 .active::before {
   content: "";
   width: 8px;
   height: 100%;
-  background: #9bd0bf;
+  /* background: #9bd0bf; */
+  background: #01120d;
   margin-right: calc(1rem - 8px);
 }
 
@@ -95,13 +97,19 @@ main{
   transition: all 0.5;
 }
 .link:hover{
-  background:var(--glass);
+  /* background:var(--glass); */
   color:black;
+  background:blue;
+  /* content: "";
+  position: absolute;
+  right: 0;
+  top:-50;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px white; */
 }
-.active{
-  background:var(--glass);
-  color:black;
-}
+
 .icon ,.link_text{
   font-size: 20px;
 }

@@ -24,27 +24,46 @@
   min-height: 100vh;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
   font-family: 'Inter', sans-serif;
   /* flex-direction: column; */
+  /* grid-template-columns: 11rem auto ; */
 
 } 
 .AppGlass {
-  display: grid;
-  height: 97%;
-  width: 97%;
-  background: var(--glass);
+  /* display: grid; */
+  height: 50%;
+  width: 50%;
+  /* background: var(--glass); */
+  background: red;
   border-radius: 2rem;
-
-  /* grid-template-columns: 11rem auto 20rem; */
+ 
+ 
+  /* grid-template-columns: 11rem auto ; */
+  /* 20rem; */
+  
+} 
+.Container {
+  /* display: grid; */
+  
+  height: 97vh;
+  width: 97%;
+  /* background: var(--glass); */
+  background: var(--orange);
+  border-radius: 2rem;
+  margin:90px;
+  
+  /* grid-template-columns: 11rem auto ; */
+  /* 20rem; */
   overflow: hidden;
 } 
-*{
+
+/* *{
   margin: 0;
   padding: 0;
   text-decoration: none;
-}
+} */
 
 
 /* .h1{
@@ -58,11 +77,3 @@
   width: 90%;
  
 } */
-table{
-  width: 100%;
-}
-td, th {
-  border: 1px solid #dddddd;
-  text-align: center;
-  padding: 8px;    
-}

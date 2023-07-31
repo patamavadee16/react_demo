@@ -10,8 +10,16 @@ function App() {
   return (
     
     <div className="App">
-<div className='AppGlass'> 
-<BrowserRouter>
+
+
+
+ 
+        <div className='Container'> 
+        <div className='AppGlass'> 
+
+        </div>
+        {/* <h1>kkk</h1> */}
+        {/* <BrowserRouter>
         
         <Sidebar>
         
@@ -22,11 +30,7 @@ function App() {
             <Route path="/AddCourse" element={<AddCourse/>}/>
           </Routes>
           </Sidebar>
-        </BrowserRouter>
-
- 
-
-       
+        </BrowserRouter> */}
         </div>
     </div>
   );
