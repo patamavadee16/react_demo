@@ -50,7 +50,7 @@ const Sidebar = ({children}) => {
               ))
           }
       </div>
-      <main>{children}</main>
+      <main >{children}</main>
    </div>
   );
 };

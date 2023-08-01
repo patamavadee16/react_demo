@@ -10,28 +10,18 @@ function App() {
   return (
     
     <div className="App">
-
-
-
- 
-        <div className='Container'> 
-        <div className='AppGlass'> 
-
-        </div>
-        {/* <h1>kkk</h1> */}
-        {/* <BrowserRouter>
-        
-        <Sidebar>
-        
-          <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/AddData" element={<AddData/>}/>
-            <Route path="/AddLec" element={<AddLec/>}/>
-            <Route path="/AddCourse" element={<AddCourse/>}/>
-          </Routes>
+      <div className='AppGlass'> 
+        <BrowserRouter>
+          <Sidebar>
+            <Routes>
+              <Route path="/" element={<Home/>}/>
+              <Route path="/AddData" element={<AddData/>}/>
+              <Route path="/AddLec" element={<AddLec/>}/>
+              <Route path="/AddCourse" element={<AddCourse/>}/>
+            </Routes>
           </Sidebar>
-        </BrowserRouter> */}
-        </div>
+        </BrowserRouter>
+      </div>
     </div>
   );
 }

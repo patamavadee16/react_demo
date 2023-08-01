@@ -1,39 +1,12 @@
 import React from 'react';
-
+import "./AddData.css";
 const AddData = () => {
+
     return (
-        <div>
-           <h1> ADD DATA COURSE</h1>
-           <br />
-           <h1> ADD DATA COURSE</h1>
-           <br />
-           <h1> ADD DATA COURSE</h1>
-           <br />
-           <h1> ADD DATA COURSE</h1>
-           <br />
-           <h1> ADD DATA COURSE</h1>
-           <br />
-           <h1> ADD DATA COURSE</h1>
-           <br />
-           <h1> ADD DATA COURSE</h1>
-           <br />
-           <h1> ADD DATA COURSE</h1>
-           <br />
-           <h1> ADD DATA COURSE</h1>
-           <br />
-           <h1> ADD DATA COURSE</h1>
-           <br />
-           <h1> ADD DATA COURSE</h1>
-           <br />
-           <h1> ADD DATA COURSE</h1>
-           <br />
-           <h1> ADD DATA COURSE</h1>
-           <br /><h1> ADD DATA COURSE</h1>
-           <br />
-
-        </div>
-    );
+        <div >
+      <h1>REACTJS CSV IMPORT EXAMPLE </h1>
+    </div>
+        );
 };
-
 export default AddData;
 

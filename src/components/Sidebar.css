@@ -1,26 +1,55 @@
+:root {
+  --yellow: linear-gradient(180deg, #F8D49A -146.42%, #FAD79D -46.42%);
+  --orange: #fca61f;
+  --black: #242d49;
+  --gray: #788097;
+  --purple: linear-gradient(180deg, #BB67FF 0%, #C484F3 100%);
+  --pink: #FF919D;
+  --glass: rgba(255, 255, 255, 0.54);
+  --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
+  --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
+  --activeItem: #f799a354;
+}
+
 *{
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
   text-decoration: none;
 }
 
 .container{
   display: flex;
   height: 100%;
+  justify-content: space-between;
 
 }
 main{
-  width: 100%;
-  padding: 20px;
+  width: 90%;
+  /* padding: 10%; */
+  background: var(--glass);
+  border-radius: 15px;
+  overflow: hidden;
+  /* display: flex; */
+  border: 1px solid green;
+  /* position: relative; */
+  overflow-x: scroll;
+  scrollbar-width: thin;
+  overflow-y: scroll;
+  /* scrollbar-width: thin; */
+
+  
 }
 .sidebar{
+  border: 1px solid green;
  background: #bce5d8;
    color:#fff;
-
+   border-radius: 15px;
  display: flex;
  flex-direction: column;
  position: relative;
- border-radius: 2rem;
+ width: 10%;
+ /* justify-content: space-around; */
+ /* border-radius: 2rem; */
  /* overflow: hidden; */
  
   /* position: sticky; */
@@ -29,10 +58,11 @@ main{
   flex-direction: column; */
   /* width: 20%; */
  min-height: 100vh;
+
     /*color: white; */
   /* background: linear-gradient(10deg, #810551, #05454d); */
   /* padding: 5px 10px; */
-  /* overflow: hidden; */
+  overflow: auto;
 }
 .top_section{
   display: flex;
@@ -70,16 +100,17 @@ main{
 }
 
 .active {
-  /* background: var(--activeItem); */
-  background: pink;
+  background:  #cce6dd; ;
+  /* background: pink; */
   margin-left: 0;
+  
 }
 .active::before {
   content: "";
   width: 8px;
   height: 100%;
   /* background: #9bd0bf; */
-  background: #01120d;
+  background: #08a06d;
   margin-right: calc(1rem - 8px);
 }
 
@@ -95,11 +126,12 @@ main{
   padding: 10px 15px;
   gap: 15px;
   transition: all 0.5;
+
 }
 .link:hover{
   /* background:var(--glass); */
   color:black;
-  background:blue;
+  background:rgb(191, 235, 225);
   /* content: "";
   position: absolute;
   right: 0;
