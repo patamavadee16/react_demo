@@ -68,8 +68,11 @@ const Home = () => {
         setValues({ ...values, [e.target.name]: e.target.value });
       };
     return (
-        <div className="app">
-        <form onSubmit={handleSubmit}>
+        <div className="container-home">
+          <button>
+            
+          </button>
+        {/* <form onSubmit={handleSubmit}>
           <h1>Register</h1>
           {inputs.map((input) => (
             <FormInput
@@ -80,7 +83,7 @@ const Home = () => {
             />
           ))}
           <button>Submit</button>
-        </form>
+        </form> */}
       </div>
     );
 };

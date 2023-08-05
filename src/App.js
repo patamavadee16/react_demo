@@ -11,16 +11,29 @@ function App() {
     
     <div className="App">
       <div className='AppGlass'> 
-        <BrowserRouter>
-          <Sidebar>
-            <Routes>
-              <Route path="/" element={<Home/>}/>
-              <Route path="/AddData" element={<AddData/>}/>
-              <Route path="/AddLec" element={<AddLec/>}/>
-              <Route path="/AddCourse" element={<AddCourse/>}/>
-            </Routes>
-          </Sidebar>
-        </BrowserRouter>
+        <div className="AppGlass-grid"> 
+          <header className='header'>
+            <h4>Hello,Admin</h4>
+          </header>
+          {/* ---header---*/}
+          {/* <div className="container-content"> */}
+              <BrowserRouter>
+                <Sidebar>
+                  <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/AddData" element={<AddData/>}/>
+                    <Route path="/AddLec" element={<AddLec/>}/>
+                    <Route path="/AddCourse" element={<AddCourse/>}/>
+                  </Routes>
+              </Sidebar>
+            </BrowserRouter>
+
+          {/* </div> */}
+          <footer className="footer">
+          <h4>Face Recognition Attendance</h4>
+
+          </footer>
+        </div>
       </div>
     </div>
   );

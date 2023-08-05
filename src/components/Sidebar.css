@@ -20,10 +20,14 @@
 .container{
   display: flex;
   height: 100%;
+  /* width: 20px; */
+  /* border: 1px solid green; */
   justify-content: space-between;
+  overflow: auto;
+  /* border-radius: 15px; */
 
 }
-main{
+.main{
   width: 90%;
   /* padding: 10%; */
   background: var(--glass);
@@ -32,9 +36,9 @@ main{
   /* display: flex; */
   border: 1px solid green;
   /* position: relative; */
-  overflow-x: scroll;
+  /* overflow-x: scroll;
   scrollbar-width: thin;
-  overflow-y: scroll;
+  overflow-y: scroll; */
   /* scrollbar-width: thin; */
 
   
@@ -44,9 +48,9 @@ main{
  background: #bce5d8;
    color:#fff;
    border-radius: 15px;
- display: flex;
+ /* display: flex; */
  flex-direction: column;
- position: relative;
+
  width: 10%;
  /* justify-content: space-around; */
  /* border-radius: 2rem; */
@@ -57,12 +61,12 @@ main{
   /* display: flex;
   flex-direction: column; */
   /* width: 20%; */
- min-height: 100vh;
-
+ min-height: 100%;
+overflow: hidden;
     /*color: white; */
   /* background: linear-gradient(10deg, #810551, #05454d); */
   /* padding: 5px 10px; */
-  overflow: auto;
+
 }
 .top_section{
   display: flex;
