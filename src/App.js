@@ -12,9 +12,9 @@ function App() {
     <div className="App">
       <div className='AppGlass'> 
         <div className="AppGlass-grid"> 
-          <header className='header'>
+          {/* <header className='header'>
             <h4>Hello,Admin</h4>
-          </header>
+          </header> */}
           {/* ---header---*/}
           {/* <div className="container-content"> */}
               <BrowserRouter>
@@ -28,11 +28,12 @@ function App() {
               </Sidebar>
             </BrowserRouter>
 
+
           {/* </div> */}
-          <footer className="footer">
+          {/* <footer className="footer">
           <h4>Face Recognition Attendance</h4>
 
-          </footer>
+          </footer> */}
         </div>
       </div>
     </div>

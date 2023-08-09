@@ -41,33 +41,45 @@ const AddCourse = () => {
       };
     const headerKeys = Object.keys(Object.assign({}, ...array));
     return (
-      <div style={{ textAlign: "center" }}>
-        <h1>REACTJS CSV IMPORT EXAMPLE </h1>
-        <form>
-          <input type={"file"} id={"csvFileInput"} accept={".csv"} onChange={handleOnChange}/> 
-          <button onClick={(e) => {handleOnSubmit(e);}}>IMPORT CSV</button>
-        </form>
-        <br />
-        <table>
-          <thead>
-            <tr key={"header"}>{
-              headerKeys.map((key) => (
-                <th>{key}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {array.map((item) => (
-              <tr key={item.id}>
-                {Object.values(item).map((val) => (
-              <td>{val}</td>
-              ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div style={{ textAlign: "start" }} className="container-course">
+        <h1 className='titel'>CSV IMPORT</h1>
+        <div className='container-form'>
+          {/* <div className='container-form-grid'> */}
+          <div className="form-grid">
+            <div className="input-box">
+              <label className='label-text'>course code:<input className="text-box"type="text" placeholder='0400000'/></label>
+              <label className='label-text'>course name(Eng):<input className="text-box" type="text" placeholder='Compro'/></label>
+              <label className='label-text'>course name(Thai):<input className="text-box"type="text" placeholder='คอมพิวเตอร์'/></label>
+              <label className='label-text'>section:<input className="text-box"type="text" placeholder='1'/></label>
+              <label className='label-text'>section id:<input className="text-box" type="text" placeholder='63146CPE1'/></label>
+              <label className='label-text'>lec:<input className="text-box" type="text" placeholder='lec'/></label>
+              <label className='label-file' ><input  type={"file"} id={"csvFileInput"} accept={".csv"} onChange={handleOnChange}/>  </label>
+              <button className="btn-course"onClick={(e) => {handleOnSubmit(e);}}>IMPORT CSV</button>
+            </div>
+            <div className="tabel-box">
+              <table className='table'>
+                <thead>
+                  <tr key={"header"}>{
+                    headerKeys.map((key) => (
+                    <th>{key}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {array.map((item) => (
+                  <tr key={item.id}>
+                    {Object.values(item).map((val) => (
+                    <td>{val}</td>
+                    ))}
+                  </tr>
+                  ))}
+                </tbody>
+             </table>
+            </div>
+          </div >
+          {/* </div> */}
+        </div>
       </div>
     );
 };
-
 export default AddCourse;

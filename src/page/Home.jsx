@@ -1,91 +1,63 @@
 import { useState } from "react";
 import FormInput from '../components/FormInput.jsx';
+import { Text, View, TouchableOpacity, Dimensions } from 'react-native'
+import '../App.css';
+import Button from '../components/Button.js';
+import { Link } from "react-router-dom";
+import AddLec from "../page/AddLec.jsx";
+import AddCourse from "../page/AddCourse.jsx";
+import AddData from '../page/AddData';
+import {BrowserRouter ,Route,Routes} from 'react-router-dom';
 const Home = () => {
-    const [values, setValues] = useState({
-        username: "",
-        email: "",
-        birthday: "",
-        password: "",
-        confirmPassword: "",
-      });
-    
-      const inputs = [
-        {
-          id: 1,
-          name: "username",
-          type: "text",
-          placeholder: "Username",
-          errorMessage:
-            "Username should be 3-16 characters and shouldn't include any special character!",
-          label: "Username",
-          pattern: "^[A-Za-z0-9]{3,16}$",
-          required: true,
-        },
-        {
-          id: 2,
-          name: "email",
-          type: "email",
-          placeholder: "Email",
-          errorMessage: "It should be a valid email address!",
-          label: "Email",
-          required: true,
-        },
-        {
-          id: 3,
-          name: "birthday",
-          type: "date",
-          placeholder: "Birthday",
-          label: "Birthday",
-        },
-        {
-          id: 4,
-          name: "password",
-          type: "password",
-          placeholder: "Password",
-          errorMessage:
-            "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
-          label: "Password",
-          pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
-          required: true,
-        },
-        {
-          id: 5,
-          name: "confirmPassword",
-          type: "password",
-          placeholder: "Confirm Password",
-          errorMessage: "Passwords don't match!",
-          label: "Confirm Password",
-          pattern: values.password,
-          required: true,
-        },
-      ];
-    
-      const handleSubmit = (e) => {
-        e.preventDefault();
-      };
-    
-      const onChange = (e) => {
-        setValues({ ...values, [e.target.name]: e.target.value });
-      };
+  // const onPress = () => {
+  //   alert('clicked')
+  // }
+   const menuItem =[
+    {
+      path:"/AddCourse",
+      name:"Course",
+    },
+    {
+      path:"/AddData",
+      name:"Data",
+    },
+    {
+      path:"/AddLec",
+      name:"Leclure",
+    },
+  ]
     return (
         <div className="container-home">
-          <button>
-            
-          </button>
-        {/* <form onSubmit={handleSubmit}>
-          <h1>Register</h1>
-          {inputs.map((input) => (
-            <FormInput
-              key={input.id}
-              {...input}
-              value={values[input.name]}
-              onChange={onChange}
-            />
-          ))}
-          <button>Submit</button>
-        </form> */}
-      </div>
+          <h1 className="titel">  HOME</h1>
+          {menuItem.map((item, index)=>(
+            <Link to={item.path} key={index} className="link-home" activeclassName="active-home">
+              <button className="btn-home">{item.name}</button>
+          {/* <div style={{display: isOpen ? "block" : "none"}} className="link_text">{item.name}</div> */}
+            </Link>
+          ))
+          }
+          {/* <button className="btn-home" >
+            <h1>Course</h1>
+          </button> */}
+          {/* <Button
+        text='Course'
+        type='outlined'
+        bordered
+        onPress={onPress}
+      /> */}
+{/*       
+      <Button style={{background:'pink ',color:'#fff'}} className="course">Course</Button>
+      <Button style={{background:'red ',color:'#fff'}}>Leclure</Button>
+      <Button style={{background:'blue ',color:'#fff'}}>Subject</Button> */}
+      {/* <BrowserRouter>
+      <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/AddData" element={<AddData/>}/>
+                    <Route path="/AddLec" element={<AddLec/>}/>
+                    <Route path="/AddCourse" element={<AddCourse/>}/>
+                  </Routes>
+       </BrowserRouter> */}
+        </div>
     );
 };
-
 export default Home;

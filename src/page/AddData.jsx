@@ -1,12 +1,40 @@
-import React from 'react';
+import { useState } from "react";
+import { Container, Navbar, Row, Col } from "react-bootstrap";
+import Add from "../components/Add";
+import List from "../components/List";
 import "./AddData.css";
-const AddData = () => {
 
+const AddData = () => {
+    const [bookId, setBookId] = useState("");
+
+    const getBookIdHandler = (id) => {
+      console.log("The ID of document to be edited: ", id);
+      setBookId(id);
+    };
     return (
-        <div >
-      <h1>REACTJS CSV IMPORT EXAMPLE </h1>
-    </div>
-        );
+        <>
+      <Navbar bg="dark" variant="dark" className="header">
+        <Container>
+          <Navbar.Brand href="#home">Library - Firebase CRUD</Navbar.Brand>
+        </Container>
+      </Navbar>
+
+      <Container style={{ width: "400px" }}>
+        <Row>
+          <Col>
+            <Add id={bookId} setBookId={setBookId} />
+          </Col>
+        </Row>
+      </Container>
+      <Container>
+        <Row>
+          <Col>
+            <List getBookId={getBookIdHandler} />
+          </Col>
+        </Row>
+      </Container>
+    </>
+  );
 };
 export default AddData;
 
