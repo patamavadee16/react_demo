@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-// import "./Sidebar.css";
-import "../App.css";
+import "./Sidebar.css";
+// import "../App.css";
 import { FaHome,FaPlusSquare,FaBook,FaUserEdit,FaBars}from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
@@ -19,7 +19,7 @@ const Sidebar = ({children}) => {
       icon:<FaBook/>,
     },
     {
-      path:"/AddData",
+      path:"/Subject",
       name:"Data",
       icon:<FaPlusSquare/>,
     },

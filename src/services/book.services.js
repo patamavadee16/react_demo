@@ -9,55 +9,80 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
+const bookCollectionRef = collection(db, "books");
+class BookDataService {
+  addSubjects = (newBook) => {
+    return addDoc(bookCollectionRef, newBook);
+  };
+
+  updateSubject = (id, updatedBook) => {
+    const bookDoc = doc(db, "books", id);
+    return updateDoc(bookDoc, updatedBook);
+  };
+
+  deleteSubject = (id) => {
+    const bookDoc = doc(db, "books", id);
+    return deleteDoc(bookDoc);
+  };
+
+  getAllSubjects = () => {
+    return getDocs(bookCollectionRef);
+  };
+
+  getSubject = (id) => {
+    const bookDoc = doc(db, "books", id);
+    return getDoc(bookDoc);
+  };
+}
 
 // const bookCollectionRef = collection(db, "books");
 // class BookDataService {
-//   addBooks = (newBook) => {
+//   addSubjects = (newBook) => {
 //     return addDoc(bookCollectionRef, newBook);
 //   };
 
-//   updateBook = (id, updatedBook) => {
+//   updateSubject = (id, updatedBook) => {
 //     const bookDoc = doc(db, "books", id);
 //     return updateDoc(bookDoc, updatedBook);
 //   };
 
-//   deleteBook = (id) => {
+//   deleteSubject = (id) => {
 //     const bookDoc = doc(db, "books", id);
 //     return deleteDoc(bookDoc);
 //   };
 
-//   getAllBooks = () => {
+//   getAllSubjects = () => {
 //     return getDocs(bookCollectionRef);
 //   };
 
-//   getBook = (id) => {
+//   getSubject = (id) => {
 //     const bookDoc = doc(db, "books", id);
 //     return getDoc(bookDoc);
 //   };
 // }
-const subjectCollectionRef = collection(db, "Subjects");
-class SubjectDataService {
-  addSubjects = (newBook) => {
-    return addDoc(subjectCollectionRef , newBook);
-  };
+// const subjectCollectionRef = collection(db, "books");
+// class SubjectDataService {
+//   addSubjects = (newBook) => {
+//     return addDoc(subjectCollectionRef , newBook);
+//   };
 
-  updateSubject = (id, updatedBook) => {
-    const subjectDoc = doc(db, "Subjects", id);
-    return updateDoc(subjectDoc, updatedBook);
-  };
+//   updateSubject = (id, updatedBook) => {
+//     const subjectDoc = doc(db, "Subjects", id);
+//     return updateDoc(subjectDoc, updatedBook);
+//   };
 
-  deleteSubject = (id) => {
-    const subjectDoc = doc(db, "Subjects", id);
-    return deleteDoc(subjectDoc);
-  };
+//   deleteSubject = (id) => {
+//     const subjectDoc = doc(db, "Subjects", id);
+//     return deleteDoc(subjectDoc);
+//   };
 
-  getAllSubjects = () => {
-    return getDocs(subjectCollectionRef );
-  };
+//   getAllSubjects = () => {
+//     return getDocs(subjectCollectionRef );
+//   };
 
-  getSubject = (id) => {
-    const subjectDoc = doc(db, "Subjects", id);
-    return getDoc(subjectDoc);
-  };
-}
-export default new SubjectDataService();
+//   getSubject = (id) => {
+//     const subjectDoc = doc(db, "Subjects", id);
+//     return getDoc(subjectDoc);
+//   };
+// }
+export default new BookDataService();

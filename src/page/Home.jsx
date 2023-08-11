@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import AddLec from "../page/AddLec.jsx";
 import AddCourse from "../page/AddCourse.jsx";
 import AddData from '../page/AddData';
+import Subject from "../page/Subject.jsx";
 import {BrowserRouter ,Route,Routes} from 'react-router-dom';
 const Home = () => {
   // const onPress = () => {
@@ -18,7 +19,7 @@ const Home = () => {
       name:"Course",
     },
     {
-      path:"/AddData",
+      path:"/Subject",
       name:"Data",
     },
     {

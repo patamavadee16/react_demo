@@ -6,6 +6,7 @@ import Home from "./page/Home.jsx";
 import AddLec from "./page/AddLec.jsx";
 import AddCourse from "./page/AddCourse.jsx";
 import AddData from './page/AddData';
+import Subject from './page/Subject';
 function App() {
   return (
     
@@ -21,7 +22,7 @@ function App() {
                 <Sidebar>
                   <Routes>
                     <Route path="/" element={<Home/>}/>
-                    <Route path="/AddData" element={<AddData/>}/>
+                    <Route path="/Subject" element={<Subject/>}/>
                     <Route path="/AddLec" element={<AddLec/>}/>
                     <Route path="/AddCourse" element={<AddCourse/>}/>
                   </Routes>

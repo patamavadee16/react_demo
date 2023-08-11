@@ -1,78 +1,268 @@
+// import React, { useState, useEffect } from "react";
+// import { Form, Alert, InputGroup, Button, ButtonGroup } from "react-bootstrap";
+// import BookDataService from "../services/book.services";
 
-import React, { useEffect, useState } from "react";
-import { Table, Button } from "react-bootstrap";
+// const Add = ({ id, setBookId: setSubjectId }) => {
+//   const [title, setTitle] = useState("");
+//   const [author, setAuthor] = useState("");
+//   const [status, setStatus] = useState("Available");
+//   const [flag, setFlag] = useState(true);
+//   const [message, setMessage] = useState({ error: false, msg: "" });
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     setMessage("");
+//     if (title === "" || author === "") {
+//       setMessage({ error: true, msg: "All fields are mandatory!" });
+//       return;
+//     }
+//     const newBook = {
+//       title,
+//       author,
+//       status,
+//     };
+//     console.log(newBook);
+
+//     try {
+//       if (id !== undefined && id !== "") {
+//         await BookDataService.updateSubject(id, newBook);
+//         setSubjectId("");
+//         setMessage({ error: false, msg: "Updated successfully!" });
+//       } else {
+//         await BookDataService.addSubjects(newBook);
+//         setMessage({ error: false, msg: "New Book added successfully!" });
+//       }
+//     } catch (err) {
+//       setMessage({ error: true, msg: err.message });
+//     }
+
+//     setTitle("");
+//     setAuthor("");
+//   };
+
+//   const editHandler = async () => {
+//     setMessage("");
+//     try {
+//       const docSnap = await BookDataService.getSubject(id);
+//       console.log("the record is :", docSnap.data());
+//       setTitle(docSnap.data().title);
+//       setAuthor(docSnap.data().author);
+//       setStatus(docSnap.data().status);
+//     } catch (err) {
+//       setMessage({ error: true, msg: err.message });
+//     }
+//   };
+
+//   useEffect(() => {
+//     console.log("The id here is : ", id);
+//     if (id !== undefined && id !== "") {
+//       editHandler();
+//     }
+//   }, [id]);
+//   return (
+//     <>
+//       <div className="p-4 box">
+//         {message?.msg && (
+//           <Alert
+//             variant={message?.error ? "danger" : "success"}
+//             dismissible
+//             onClose={() => setMessage("")}
+//           >
+//             {message?.msg}
+//           </Alert>
+//         )}
+
+//         <Form onSubmit={handleSubmit}>
+//           <Form.Group className="mb-3" controlId="formBookTitle">
+//             <InputGroup>
+//               <InputGroup.Text id="formBookTitle">B</InputGroup.Text>
+//               <Form.Control
+//                 type="text"
+//                 placeholder="Subject code"
+//                 value={title}
+//                 onChange={(e) => setTitle(e.target.value)}
+//               />
+//             </InputGroup>
+//           </Form.Group>
+
+//           <Form.Group className="mb-3" controlId="formBookAuthor">
+//             <InputGroup>
+//               <InputGroup.Text id="formBookAuthor">A</InputGroup.Text>
+//               <Form.Control
+//                 type="text"
+//                 placeholder="name"
+//                 value={author}
+//                 onChange={(e) => setAuthor(e.target.value)}
+//               />
+//             </InputGroup>
+//           </Form.Group>
+//           <ButtonGroup aria-label="Basic example" className="mb-3">
+//             <Button
+//               disabled={flag}
+//               variant="success"
+//               onClick={(e) => {
+//                 setStatus("Available");
+//                 setFlag(true);
+//               }}
+//             >
+//               Available
+//             </Button>
+//             <Button
+//               variant="danger"
+//               disabled={!flag}
+//               onClick={(e) => {
+//                 setStatus("Not Available");
+//                 setFlag(false);
+//               }}
+//             >
+//               Not Available
+//             </Button>
+//           </ButtonGroup>
+//           <div className="d-grid gap-2">
+//             <Button variant="primary" type="Submit">
+//               Add/ Update
+//             </Button>
+//           </div>
+//         </Form>
+//       </div>
+//     </>
+//   );
+// };
+// export default Add;
+import React, { useState, useEffect } from "react";
+import { Form, Alert, InputGroup, Button, ButtonGroup } from "react-bootstrap";
 import BookDataService from "../services/book.services";
-
-const Add  = ({ getBookId }) => {
-    const [books, setBooks] = useState([]);
-    useEffect(() => {
-      getSubjects();
-    }, []);
-  
-    const getSubjects = async () => {
-      const data = await BookDataService.getAllSubjects();
-      console.log(data.docs);
-      setBooks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+const Add = ({ id, setSubjectId }) => {
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [status, setStatus] = useState("Available");
+  const [flag, setFlag] = useState(true);
+  const [message, setMessage] = useState({ error: false, msg: "" });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage("");
+    if (title === "" || author === "") {
+      setMessage({ error: true, msg: "All fields are mandatory!" });
+      return;
+    }
+    const newBook = {
+      title,
+      author,
+      status,
     };
-  
-    const deleteHandler = async (id) => {
-      await BookDataService.deleteSubject(id);
-      getSubjects();
-    };
-    return (
-      <>
-        <div className="mb-2">
-          <Button variant="dark edit" onClick={getSubjects}>
-            Refresh List
-          </Button>
-        </div>
-  
-        {/* <pre>{JSON.stringify(books, undefined, 2)}</pre>} */}
-        <Table striped bordered hover size="sm">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Book Title</th>
-              <th>Book Author</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {books.map((doc, index) => {
-              return (
-                <tr key={doc.id}>
-                  <td>{index + 1}</td>
-                  <td>{doc.title}</td>
-                  <td>{doc.author}</td>
-                  <td>{doc.status}</td>
-                  {/* <td>{doc.courseCode}</td>
-                  <td>{doc.nameEng}</td>
-                  <td>{doc.nameThai}</td> */}
-                  {/* <td>{doc.status}</td> */}
-                  <td>
-                    <Button
-                      variant="secondary"
-                      className="edit"
-                      onClick={(e) => getBookId(doc.id)}
-                    >
-                      Edit
-                    </Button>
-                    <Button
-                      variant="danger"
-                      className="delete"
-                      onClick={(e) => deleteHandler(doc.id)}
-                    >
-                      Delete
-                    </Button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </Table>
-      </>
-    );
+    console.log(newBook);
+    try {
+      if(id !== undefined && id !== "") {
+        await BookDataService.updateSubject(id, newBook);
+        setSubjectId("");
+        setMessage({ error: false, msg: "Updated successfully!" });
+      } else {
+        await BookDataService.addSubjects(newBook);
+        setMessage({ error: false, msg: "New Book added successfully!" });
+      }
+    } catch (err) {
+      setMessage({ error: true, msg: err.message });
+    }
+    setTitle("");
+    setAuthor("");
   };
-  
+  const editHandler = async () => {
+    setMessage("");
+    try {
+      const docSnap = await BookDataService.getSubject(id);
+      console.log("the record is :", docSnap.data());
+      setTitle(docSnap.data().title);
+      setAuthor(docSnap.data().author);
+      setStatus(docSnap.data().status);
+    } catch (err) {
+      setMessage({ error: true, msg: err.message });
+    }
+  };
+  useEffect(() => {
+    console.log("The id here is : ", id);
+    if (id !== undefined && id !== "") {
+      editHandler();
+    }
+  }, [id]);
+  return (
+    <>
+      <div className="p-4 box">
+        {message?.msg && (
+          <Alert
+            variant={message?.error ? "danger" : "success"}
+            dismissible
+            onClose={() => setMessage("")}
+          >
+            {message?.msg}
+          </Alert>
+        )}
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBookTitle">
+            <InputGroup>
+            <label for="formBookTitle">Subject Code </label>
+              <InputGroup.Text id="formBookTitle">B</InputGroup.Text>
+              <Form.Control
+                type="text"
+                placeholder="Book Title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </InputGroup>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBookAuthor">
+            <InputGroup>
+            <label for="formBookAuthor">Subject Name ENG </label>
+              <InputGroup.Text id="formBookAuthor">A</InputGroup.Text>
+              <Form.Control
+                type="text"
+                placeholder="Subject Name Eng"
+                value={author}
+                onChange={(e) => setAuthor(e.target.value)}
+              />
+            </InputGroup>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBookAuthor">
+            <InputGroup>
+            <label for="formSubjectThai">Subject Name Thai </label>
+              <InputGroup.Text id="formSubjectThai">A</InputGroup.Text>
+              <Form.Control
+                type="text"
+                placeholder="Subject Name Thai"
+                value={author}
+                onChange={(e) => setAuthor(e.target.value)}
+              />
+            </InputGroup>
+          </Form.Group>
+          {/* <ButtonGroup aria-label="Basic example" className="mb-3">
+            <Button
+              disabled={flag}
+              variant="success"
+              onClick={(e) => {
+                setStatus("Available");
+                setFlag(true);
+              }}
+            >
+              Available
+            </Button>
+            <Button
+              variant="danger"
+              disabled={!flag}
+              onClick={(e) => {
+                setStatus("Not Available");
+                setFlag(false);
+              }}
+            >
+              Not Available
+            </Button>
+          </ButtonGroup> */}
+          <div className="d-grid gap-2">
+            <Button variant="primary" type="Submit">
+              Add/ Update
+            </Button>
+          </div>
+        </Form>
+      </div>
+    </>
+  );
+};
 export default Add;

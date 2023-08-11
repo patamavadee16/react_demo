@@ -10,142 +10,237 @@
   --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
   --activeItem: #f799a354;
 }
-
 *{
   /* margin: 0;
-  padding: 0; */
-  text-decoration: none;
+  padding: 0; 
+  text-decoration: none;*/
 }
-
+/* --------------------------------------components/Siderbar.jsx------------------------------------- */
 .container{
-  display: flex;
   height: 100%;
-  /* width: 20px; */
+  width: 100%;
+  /* background: #a8dddf; */
   /* border: 1px solid green; */
-  justify-content: space-between;
-  overflow: auto;
   /* border-radius: 15px; */
-
 }
-.main{
-  width: 90%;
-  /* padding: 10%; */
-  background: var(--glass);
-  border-radius: 15px;
-  overflow: hidden;
-  /* display: flex; */
-  border: 1px solid green;
-  /* position: relative; */
-  /* overflow-x: scroll;
-  scrollbar-width: thin;
-  overflow-y: scroll; */
-  /* scrollbar-width: thin; */
-
-  
+.container-grid{
+  display: grid;
+  grid-template-columns:repeat(20,1fr);
+  height: 100%;
+  width: 100%;
+  /* gap: 0.5rem; */
+  /* background: #bce5d8; */
+  /* border: 1px solid #fca61f; */
+  /* overflow: auto;
+  justify-content: center; */
 }
+/* --------------------------------------sidebar-------------------------------------- */
 .sidebar{
-  border: 1px solid green;
- background: #bce5d8;
-   color:#fff;
-   border-radius: 15px;
- /* display: flex; */
- flex-direction: column;
-
- width: 10%;
- /* justify-content: space-around; */
- /* border-radius: 2rem; */
- /* overflow: hidden; */
- 
+  margin-left: 10%; 
+  display: flex;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  color:#fff;
+  background: #78C1F3;
+  overflow: hidden;
+  border-radius: 20px;
+  /* margin-right: 50%;  */
+  /* height: 100%; */
+  /* min-height: 100%; */
+  /* width: 80%; */
+  /* background:rgba(161, 161, 161, 0.54); */
+  /* border: 1px solid black; */
+  /* flex-direction: column; */
+  /* box-shadow: 5px 5px 15px 5px rgba(50, 50, 50, .5); */
+  /* justify-content: space-around; */
+  /* border-radius: 2rem; */
+  /* overflow: hidden; */
   /* position: sticky; */
   /* top: 0; */
   /* display: flex;
   flex-direction: column; */
   /* width: 20%; */
- min-height: 100%;
-overflow: hidden;
-    /*color: white; */
+  /*color: white; */
   /* background: linear-gradient(10deg, #810551, #05454d); */
   /* padding: 5px 10px; */
-
+}
+.sidebar-grid{
+  display: grid;
+  grid-template-rows: repeat(10,1fr);
+  width: 100%;
+  height: 100%;
+  /* background: rgb(122, 129, 163); */
+  /* align-items: center;
+  justify-content: center; */
 }
 .top_section{
   display: flex;
-  background: #bce5d8;
-
-
-  /* justify-content: flex-start;
-  align-items: flex-start; */
-  padding-top: 20px;
-  padding-left: 20px;
   align-items: center;
   justify-items: center;
-
+  /* background: #bce5d8; */
+  /* justify-content: flex-start;
+  align-items: flex-start; */
+  /* padding-top: 20px;
+  padding-left: 20px; */
 }
 .logo{
   display: flex;
-
   font-weight: bold;
   font-size: 30px;
-
   align-items: center;
   justify-content: center;
-
-
-
 }
+/*.list{
+  background: #dcf8ef;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+} */
 .menuItem:hover {
   cursor: pointer;
 }
-
-.menu .menuItem:last-child {
+/* .menu .menuItem:last-child {
   position: absolute;
   bottom: 2.3rem;
   width: 100%;
-}
-
-.active {
-  background:  #cce6dd; ;
-  /* background: pink; */
-  margin-left: 0;
   
+} */
+.link {
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: auto;
+/* background: rgb(208, 213, 207);    */
 }
-.active::before {
-  content: "";
+/* .item:after{
+  content: "aaa";
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: auto;
+background: rgb(63, 156, 45);
+} */
+/* .link {
+  background: rgb(109, 47, 232);
+  } */
+.active {
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  transition:all .4s ease-out;
+  height: 100%;
+/* background:rgba(255, 255, 255, 0.54);  */
+/* opacity: 0; */
+}
+/* .link:hover {
+transform: translateX(-20px);
+} */
+/*  */
+/* .active:hover {
+	transform: translateX(-20px);
+} */
+/* .active:hover:after {
+  opacity: 1;
+	transform: perspective(400px) rotateY(0deg) scale(1) ;
+} */
+/* .active::before {
+  content: "fgh";
   width: 8px;
   height: 100%;
-  /* background: #9bd0bf; */
   background: #08a06d;
-  margin-right: calc(1rem - 8px);
+} */
+.active .item{
+  /* display: grid;
+  grid-template-columns: repeat(2,1fr); */
+  width: 70%;
+  height: 70%;
+  justify-content: center;
+  align-items: center;
+  background:rgba(161, 161, 161, 0.54);
+  border-radius: 20px;
+  /* transition:all .1s; */
 }
-
-
-.bars{
-  display: flex;
-  margin-left: 50px;
-  font-size: 25px;
-}
-.link{
-  display: flex;
-  color: white;
-  padding: 10px 15px;
-  gap: 15px;
-  transition: all 0.5;
-
-}
-.link:hover{
-  /* background:var(--glass); */
-  color:black;
-  background:rgb(191, 235, 225);
-  /* content: "";
-  position: absolute;
-  right: 0;
-  top:-50;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  box-shadow: 35px 35px 0 10px white; */
-}
-
-.icon ,.link_text{
+/* .text{
   font-size: 20px;
+  color: #000000;
+align-items: center;
+justify-content: center;
+display: flex;
+width: 100%;
+overflow: hidden;
+height: 100%;
+  background: #b8c4ea;
+  height: 100%;
+} */
+/* .text:active{
+  font-size: 20px;
+  color: #000000;
+
+align-items: center;
+justify-content: center;
+display: flex;
+width: 100%;
+overflow: hidden;
+height: 100%;
+  background: #0132d1;
+  height: 100%;
+} */
+/* .icon::after{
+  content: "aaa";
+  background: rgb(78, 0, 13);
+
+} */
+.icon ,.link_text,text{
+  font-size: 35px;
+  color: #ffffff;
+  /* background: pink; */
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
 }
+/* 
+.container{
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+} */
+/* --------------------------------------sidebar-------------------------------------- */
+
+/* --------------------------------------main-------------------------------------- */
+.main{
+  display: flex;
+  grid-column-start: 3;
+  grid-column-end: 20;
+  overflow: hidden;
+  justify-content: end;
+  /* border: 1px solid green; */
+  /* margin: 5% 5%; */
+  /* width: 100%;
+  height: 100%; */
+  /* padding: 10%; */
+  /* background: var(--glass); */
+  /* border-radius: 15px; */
+  /* position: relative; */
+  /* overflow-x: scroll;
+  scrollbar-width: thin;
+  overflow-y: scroll; */
+  /* scrollbar-width: thin; */
+}
+.container-main{
+  display:flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  /* border: 1px solid rgb(229, 229, 229); 
+  background: rgb(220, 221, 226); */
+}
+/* --------------------------------------main-------------------------------------- */
+
+/* --------------------------------------container-------------------------------------- */
+
+/* --------------------------------------components/Siderbar.jsx------------------------------------- */
