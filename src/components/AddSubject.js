@@ -58,7 +58,7 @@ const AddSubject = ({id,setSubjectId}) => {
             }
         },[id]);
         return (
-                          <div className="p-4 box">
+                <div className="p-4 box">
                 {message?.msg && (
                   <Alert
                     variant={message?.error ? "danger" : "success"}
@@ -70,8 +70,9 @@ const AddSubject = ({id,setSubjectId}) => {
                 )}
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-3" controlId="formSubjectCode">
-                    <InputGroup>
-                      <InputGroup.Text id="formBookTitle">B</InputGroup.Text>
+                    <InputGroup className='input-group'>
+                    <label for="formSubjectCode">รหัสวิชา</label>
+                      <InputGroup.Text id="formSubjectCode">B</InputGroup.Text>
                       <Form.Control
                         type="text"
                         placeholder="SubjectCode"
@@ -81,7 +82,8 @@ const AddSubject = ({id,setSubjectId}) => {
                     </InputGroup>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formSubjectEng">
-                    <InputGroup>
+                    <InputGroup className='input-group'>
+                    <label for="formSubjectEng">ชื่อวิชา</label>
                       <InputGroup.Text id="formSubjectEng">B</InputGroup.Text>
                       <Form.Control
                         type="text"
@@ -93,6 +95,7 @@ const AddSubject = ({id,setSubjectId}) => {
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formSubjectThai">
                     <InputGroup>
+                    <label for="formSubjectThai">ชื่อวิชา</label>
                       <InputGroup.Text id="formSubjectThai">B</InputGroup.Text>
                       <Form.Control
                         type="text"
@@ -109,8 +112,6 @@ const AddSubject = ({id,setSubjectId}) => {
                 </div>
                 </Form>
               </div>
-          
           );
 };
-
 export default AddSubject;

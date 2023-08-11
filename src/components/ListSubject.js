@@ -1,6 +1,7 @@
 import  React ,{ useEffect ,useState} from "react";
 import {Table,Button} from "react-bootstrap";
 import subjectServices from "../services/subject.services";
+import "../App.css"
 
 const ListSubject = ({getSubjectId}) => {
     const [subjects,setSubjects]= useState([]);
@@ -19,50 +20,45 @@ const ListSubject = ({getSubjectId}) => {
         getSubjects();
     }
     return (
-        <div>
-            <Button variant="dark edit" onclick={getSubjects}>
-                Refresh List
-
-            </Button>
-
-        <Table>
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>Code</th>
-                <th>Eng</th>
-                <th>Thai</th>
-            </tr>
-            </thead>
-            <tbody>
+        <div >
+            <Button variant="dark edit" onclick={getSubjects}>Refresh List</Button>
+            <Table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Code</th>
+                        <th>Eng</th>
+                        <th>Thai</th>
+                        <th>modify</th>
+                    </tr>
+                </thead>
+                <tbody>
                 {subjects.map((doc,index)=>{
                     return(
                         <tr key={doc.id}>    
-                        <td>{index+1}</td>
-                        <td>{doc.subjectCode}</td>
-                        <td>{doc.subjectEng}</td>
-                        <td>{doc.subjectThai}</td>
-                        <td>
-                        <Button
-                    variant="secondary"
-                    className="edit"
-                    onClick={(e) => getSubjectId(doc.id)}
-                  >
-                    Edit
-                  </Button>
-                  <Button
-                    variant="danger"
-                    className="delete"
-                    onClick={(e) => deleteHandler(doc.id)}
-                  >
-                    Delete
-                  </Button>
-                        </td>
+                            <td>{index+1}</td>
+                            <td>{doc.subjectCode}</td>
+                            <td>{doc.subjectEng}</td>
+                            <td>{doc.subjectThai}</td>
+                            <td>
+                                <Button
+                                variant="secondary"
+                                className="edit"
+                                onClick={(e) => getSubjectId(doc.id)}
+                                >Edit
+                                </Button>
+                                <Button
+                                variant="danger"
+                                className="delete"
+                                onClick={(e) => deleteHandler(doc.id)}
+                                >Delete
+                                </Button>
+                            </td>
                         </tr>
                     );
                 })}
-            </tbody>
-        </Table>
+                </tbody>
+            </Table>
         </div>
     );
 };

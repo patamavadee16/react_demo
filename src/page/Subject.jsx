@@ -12,24 +12,23 @@ const Subject = () => {
         setSubjectId(id);
     }
     return (
-        <div >
-        <h1 className="title"> Subjectt</h1>
-        <div className="form-sub">
-          {/* <Row >
-            <Col>
-              <AddSubject id={subjectId} setSubjectId={setSubjectId}/>
-            </Col>
-          </Row> */}
-        </div>
-        <div className="table-sub">
-          {/* <Row>
-            <Col>
-              <ListSubject getSubjectId={getSubjectIdHandler}/>
-            </Col>
-          </Row> */}
-        </div>
+        <div className="subject">
+          <h1 className="title"> Subjectt</h1>
+          <div className="form-sub">
+            <Row>
+              <Col>
+                <AddSubject id={subjectId} setSubjectId={setSubjectId}/>
+              </Col>
+            </Row>
+          </div>
+          <div className="table-sub">
+            <Row>
+              <Col>
+                <ListSubject getSubjectId={getSubjectIdHandler}/>
+              </Col>
+            </Row>
+          </div>
         </div>
     );
 };
-
 export default Subject;
