@@ -77,7 +77,6 @@
     /* border: 2px solid pink; */
     overflow: hidden;
     /* border-radius: 20px; */
-    
   }
   .subject{
     display: grid;
@@ -91,7 +90,6 @@
     grid-row-start: 1;
     grid-row-end: 2;
     align-items: center;
-
     /* display: flex;
     grid-column-start: 3;
     grid-column-end: 20; */

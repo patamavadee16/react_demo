@@ -2,6 +2,7 @@ import  React ,{ useEffect ,useState} from "react";
 import {Table,Button} from "react-bootstrap";
 import subjectServices from "../services/subject.services";
 import "../App.css"
+import Dropdown from "react-dropdown";
 
 const ListSubject = ({getSubjectId}) => {
     const [subjects,setSubjects]= useState([]);
@@ -12,6 +13,7 @@ const ListSubject = ({getSubjectId}) => {
     const getSubjects =async()=>{
         const data = await subjectServices.getAllSubjects();
         console.log(data.docs);
+        console.log("data.docs");
         setSubjects(data.docs.map((doc => ({...doc.data(),id:doc.id}))));
     };
 
@@ -19,9 +21,13 @@ const ListSubject = ({getSubjectId}) => {
         await subjectServices.deleleSubject(id);
         getSubjects();
     }
+    const options = [
+        'one', 'two', 'three'
+      ];
+      const defaultOption = options[0];
     return (
         <div >
-            <Button variant="dark edit" onclick={getSubjects}>Refresh List</Button>
+            <Button variant="dark edit" onClick={getSubjects}>Refresh List</Button>
             <Table>
                 <thead>
                     <tr>
@@ -59,6 +65,7 @@ const ListSubject = ({getSubjectId}) => {
                 })}
                 </tbody>
             </Table>
+            {/* <Dropdown options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select an option" />; */}
         </div>
     );
 };

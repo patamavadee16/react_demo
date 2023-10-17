@@ -1,9 +1,8 @@
 import React,{useState} from "react";
-import { Container,Row,Col } from "react-bootstrap";
+import { Row,Col } from "react-bootstrap";
 import AddSubject from "../components/AddSubject.js";
 import ListSubject from "../components/ListSubject.js";
 import "./AddData.css";
-
 
 const Subject = () => {
     const [subjectId,setSubjectId] = useState("");
